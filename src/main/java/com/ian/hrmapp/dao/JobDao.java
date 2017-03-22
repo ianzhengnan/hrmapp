@@ -22,6 +22,9 @@ public interface JobDao {
 	@SelectProvider(type = JobDynaSqlProvider.class, method = "selectWithParam")
 	List<Job> selectByPage(Map<String, Object> params);
 	
+	@SelectProvider(type = JobDynaSqlProvider.class, method = "count")
+	Integer count(Map<String, Object> params);
+	
 	@Delete("delete from " + JOBTABLE + " where id = #{id}")
 	void deleteById(Integer id);
 	

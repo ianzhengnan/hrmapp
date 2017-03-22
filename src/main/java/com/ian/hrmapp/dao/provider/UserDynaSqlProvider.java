@@ -31,7 +31,7 @@ public class UserDynaSqlProvider {
 		return sql;
 	}
 	
-	public String insertUser(Map<String, Object> params){
+	public String count(Map<String, Object> params){
 		return new SQL(){
 			{
 				SELECT("count(*)");

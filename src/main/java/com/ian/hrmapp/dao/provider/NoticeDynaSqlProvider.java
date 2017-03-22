@@ -51,7 +51,7 @@ public class NoticeDynaSqlProvider {
 		}.toString();
 	}
 	
-	public String save(Notice notice){
+	public String insertNotice(Notice notice){
 		return new SQL(){
 			{
 				INSERT_INTO(NOTICETABLE);

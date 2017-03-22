@@ -17,6 +17,9 @@ public interface DeptDao {
 	@SelectProvider(type = DeptDynaSqlProvider.class, method = "selectWithParam")
 	List<Dept> selectByPage(Map<String, Object> params);
 	
+	@Select("select * from " + DEPTTABLE )
+	List<Dept> selectAllDepts();
+	
 	@SelectProvider(type = DeptDynaSqlProvider.class, method = "count")
 	Integer count(Map<String , Object> params);
 	

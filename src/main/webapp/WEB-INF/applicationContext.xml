@@ -20,10 +20,18 @@
 		
 	<mybatis:scan base-package="com.ian.hrmapp.dao"/>
 	
+	<context:component-scan base-package="com.ian.hrmapp" />
+	
 	<context:property-override location="classpath:db.properties"/>
 	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" />
 	
 	<bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource" />
 		
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" 
+		p:dataSource-ref="dataSource"/>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	
 </beans>
