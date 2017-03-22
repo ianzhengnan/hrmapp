@@ -1,2 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sum.com/xml/ns/javaee/web-jsptablibrary_2_1.xsd"
+	version="2.1">
 
+	<description>Pager 1.0 core library</description>
+	<display-name>Pager core</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>ian.java</short-name>
+	<uri>/pager-tags</uri>
+	<tag>
+		<name>pager</name>
+		<tag-class>com.ian.hrmapp.util.tag.PagerTag</tag-class>
+		<body-content>empty</body-content>
+		
+		<attribute>
+			<name>pageIndex</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>pageSize</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>recordCount</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>submitUrl</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>
+	
