@@ -76,13 +76,13 @@
 		    <tr><td class="font3 fftd">
 		    	<table>
 		    		<tr>
-		    			<td class="font3 fftd">姓名：<input type="text" name="username" id="username" size="20" value="${user.username }"/></td>
-		    			<td class="font3 fftd">状态：<input type="text" name="status" id="status" size="20" value="${user.status }"/></td>
+		    			<td class="font3 fftd">姓名：<input type="text" name="user.username" id="username" size="20" value="${user.username }"/></td>
+		    			<td class="font3 fftd">状态：<input type="text" name="user.status" id="status" size="20" value="${user.status }"/></td>
 		    		</tr>
 		    			
 		    		<tr>
-		    			<td class="font3 fftd">登录名：<input name="loginname" id="loginname" size="20" value="${user.loginname }"/></td>
-		    			<td class="font3 fftd">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input name="password" id="password" size="20" value="${user.password }"/></td>
+		    			<td class="font3 fftd">登录名：<input name="user.loginname" id="loginname" size="20" value="${user.loginname }"/></td>
+		    			<td class="font3 fftd">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input name="user.password" id="password" size="20" value="${user.password }"/></td>
 		    		</tr>
 		    		
 		    	</table>

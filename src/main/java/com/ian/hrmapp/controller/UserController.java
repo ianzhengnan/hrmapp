@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,22 +61,7 @@ public class UserController {
 		
 		return formName;
 	}
-	
-//	@RequestMapping(value = "/user/{formName}", method = RequestMethod.GET)
-//	public String toUserPage(@PathVariable String formName){
-//		return "/user/" + formName;
-//	}
-	
-//	@RequestMapping(value = "/loginForm", method = RequestMethod.GET)
-//	public String toLoginForm(){
-//		return "loginForm";
-//	}
-//	
-//	@RequestMapping(value = "/main", method = RequestMethod.GET)
-//	public String toMain(){
-//		return "main";
-//	}
-	
+		
 	@RequestMapping(value = "/user/selectUser")
 	public String selectUser(Integer pageIndex, 
 							@ModelAttribute User user, 
@@ -84,6 +71,8 @@ public class UserController {
 		PageModel pageModel = new PageModel();
 		if(pageIndex != null){
 			pageModel.setPageIndex(pageIndex);
+		}else{
+			pageModel.setPageIndex(0);
 		}
 		
 		List<User> users = hrmService.findUser(user, pageModel);
@@ -120,14 +109,15 @@ public class UserController {
 		return mv;
 	}
 	
+	@InitBinder("user")
+	public void InitBinderUser(WebDataBinder binder){
+		binder.setFieldDefaultPrefix("user.");
+	}
+	
 	@RequestMapping(value = "/user/addUser")
-	public ModelAndView addUser(String flag, @ModelAttribute("user") User user, ModelAndView mv){
+	public ModelAndView addUser(String flag, @ModelAttribute User user, ModelAndView mv){
 		
 		if (flag.equals("1")) {
-//			if(user == null){
-//				user = new User();
-//			}
-//			mv.addObject("user", user);
 			mv.setViewName("user/showAddUser");
 		}else{
 			hrmService.addUser(user);

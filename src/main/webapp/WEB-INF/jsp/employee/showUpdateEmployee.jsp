@@ -29,7 +29,7 @@
 		
     	/** 员工表单提交 */
 		$("#employeeForm").submit(function(){
-			alert(1);
+			//alert(1);
 			var name = $("#name");
 			var cardId = $("#cardId");
 			var education = $("#education");

@@ -21,7 +21,7 @@ public class PageModel {
 		this.recordCount = recordCount;
 	}
 	
-	public int getPageInde(){
+	public int getPageIndex(){
 		this.pageIndex = this.pageIndex <= 0 ? 1 : this.pageIndex;
 		return pageIndex;
 	}
@@ -49,6 +49,6 @@ public class PageModel {
 	}
 	
 	public int getFirstLimitParam(){
-		return (this.getPageInde() - 1) * this.pageSize;
+		return (this.getPageIndex() - 1) * this.pageSize;
 	}
 }

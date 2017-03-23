@@ -54,16 +54,16 @@ public class UserDynaSqlProvider {
 		return new SQL(){
 			{
 				INSERT_INTO(USERTABLE);
-				if (user.getUsername() != null && user.getUsername().equals("")) {
+				if (user.getUsername() != null && !user.getUsername().equals("")) {
 					VALUES("username","#{username}");
 				}
-				if (user.getStatus() != null && user.getStatus().equals("")) {
+				if (user.getStatus() != null && !user.getStatus().equals("")) {
 					VALUES("status","#{status}");
 				}
-				if (user.getPassword() != null && user.getPassword().equals("")) {
+				if (user.getPassword() != null && !user.getPassword().equals("")) {
 					VALUES("password","#{password}");
 				}
-				if (user.getLoginname() != null && user.getLoginname().equals("")) {
+				if (user.getLoginname() != null && !user.getLoginname().equals("")) {
 					VALUES("loginname","#{loginname}");
 				}
 			}

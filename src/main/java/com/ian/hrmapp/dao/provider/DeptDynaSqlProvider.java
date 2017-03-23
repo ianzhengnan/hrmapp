@@ -49,11 +49,11 @@ public class DeptDynaSqlProvider {
 		return new SQL(){
 			{
 				INSERT_INTO(DEPTTABLE);
-				if(dept.getName() != null && dept.getName().equals("")){
-					WHERE(" name LIKE CONCAT ('%', #{dept.name}, '%')");
+				if(dept.getName() != null && !dept.getName().equals("")){
+					VALUES("name", "#{name}");
 				}
-				if(dept.getRemark() != null && dept.getRemark().equals("")){
-					WHERE(" name LIKE CONCAT ('%', #{dept.remark}, '%')");
+				if(dept.getRemark() != null && !dept.getRemark().equals("")){
+					VALUES("remark", "#{remark}");
 				}
 			}
 		}.toString();

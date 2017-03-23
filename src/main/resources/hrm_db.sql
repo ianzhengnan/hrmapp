@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-03-20 11:41:58
+Date: 2017-03-23 16:47:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,17 +24,17 @@ CREATE TABLE `dept_inf` (
   `NAME` varchar(50) NOT NULL,
   `REMARK` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dept_inf
 -- ----------------------------
-INSERT INTO `dept_inf` VALUES ('1', '技术部', '技术部');
 INSERT INTO `dept_inf` VALUES ('2', '运营部', '运营部');
 INSERT INTO `dept_inf` VALUES ('3', '财务部', '财务部');
 INSERT INTO `dept_inf` VALUES ('4', '总工办', '总工办');
 INSERT INTO `dept_inf` VALUES ('5', '市场部', '市场部');
 INSERT INTO `dept_inf` VALUES ('6', '教学部', '教学部');
+INSERT INTO `dept_inf` VALUES ('16', '体育部', '体育部');
 
 -- ----------------------------
 -- Table structure for document_inf
@@ -49,7 +49,7 @@ CREATE TABLE `document_inf` (
   `USER_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK_DOCUMENT_USER` (`USER_ID`),
-  CONSTRAINT `FK_DOCUMENT_USER` FOREIGN KEY (`USER_ID`) REFERENCES `user_inf` (`ID`)
+  CONSTRAINT `FK_DOCUMENT_USER` FOREIGN KEY (`USER_ID`) REFERENCES `user_inf` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -84,16 +84,14 @@ CREATE TABLE `employee_inf` (
   PRIMARY KEY (`ID`),
   KEY `FK_EMP_DEPT` (`DEPT_ID`),
   KEY `FK_EMP_JOB` (`JOB_ID`),
-  CONSTRAINT `FK_EMP_DEPT` FOREIGN KEY (`DEPT_ID`) REFERENCES `dept_inf` (`ID`),
-  CONSTRAINT `FK_EMP_JOB` FOREIGN KEY (`JOB_ID`) REFERENCES `job_inf` (`ID`)
+  CONSTRAINT `FK_EMP_DEPT` FOREIGN KEY (`DEPT_ID`) REFERENCES `dept_inf` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_EMP_JOB` FOREIGN KEY (`JOB_ID`) REFERENCES `job_inf` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of employee_inf
 -- ----------------------------
-INSERT INTO `employee_inf` VALUES ('1', '1', '8', '爱丽丝', '342101198502231589', '广州天河', '510000', '020-7777777', '13761659856', '95874156', '69854756.qq.com', '0', '党员', '1982-03-20 11:35:57', '汉', '本科', '美声', '唱歌', '四大天王', '2017-03-20 11:37:02');
 INSERT INTO `employee_inf` VALUES ('2', '2', '1', '杰克', '321462198612052569', '上海浦东', '210000', '021-65989652', '13896598456', '95581714', '95847625.qq.com', '1', '党员', '1985-03-20 11:38:49', '满', '本科', '吉他', '弹吉他', 'Steve Vai', '2017-03-20 11:39:42');
-INSERT INTO `employee_inf` VALUES ('3', '1', '2', '卡卡', '369587198806092568', '上海嘉定', '210000', '021-56985847', '13695847562', '5698547', '69584723.qq.com', '1', '群众', '1988-03-20 11:40:57', '汉', '大专', '踢球', '踢球', '卡卡', '2017-03-20 11:41:25');
 
 -- ----------------------------
 -- Table structure for job_inf
@@ -131,7 +129,7 @@ CREATE TABLE `notice_inf` (
   `USER_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `FK_NOTICE_USER` (`USER_ID`),
-  CONSTRAINT `FK_NOTICE_USER` FOREIGN KEY (`USER_ID`) REFERENCES `user_inf` (`ID`)
+  CONSTRAINT `FK_NOTICE_USER` FOREIGN KEY (`USER_ID`) REFERENCES `user_inf` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -150,7 +148,7 @@ CREATE TABLE `user_inf` (
   `CREATEDATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `USERNAME` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_inf

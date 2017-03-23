@@ -8,7 +8,7 @@
 	<description>Pager 1.0 core library</description>
 	<display-name>Pager core</display-name>
 	<tlib-version>1.0</tlib-version>
-	<short-name>ian.java</short-name>
+	<short-name>fkjava</short-name>
 	<uri>/pager-tags</uri>
 	<tag>
 		<name>pager</name>
