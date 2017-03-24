@@ -23,7 +23,7 @@ public interface DocumentDao {
 		@Result(id = true, column = "id", property = "id"),
 		@Result(column = "CREATE_DATE", property = "createDate",javaType = Date.class),
 		@Result(column = "USER_ID", property = "user", 
-			one = @One(select="com.ian.hrmapp.Dao.UserDao.selectById",fetchType = FetchType.EAGER))
+			one = @One(select="com.ian.hrmapp.dao.UserDao.selectById",fetchType = FetchType.EAGER))
 	})
 	List<Document> selectByPage(Map<String, Object> params);
 

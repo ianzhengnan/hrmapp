@@ -51,7 +51,7 @@ public class DocumentDynaSqlProvider {
 					VALUES("title","#{title}");
 				}
 				if (document.getFileName() != null && !document.getFileName().equals("")) {
-					VALUES("filename","#{filename}");
+					VALUES("filename","#{fileName}");
 				}
 				if (document.getRemark() != null && !document.getRemark().equals("")) {
 					VALUES("remark","#{remark}");
@@ -71,7 +71,7 @@ public class DocumentDynaSqlProvider {
 					SET(" title = #{title} ");
 				}
 				if (document.getFileName() != null) {
-					SET(" filename = #{filename} ");
+					SET(" filename = #{fileName} ");
 				}
 				if (document.getRemark() != null) {
 					SET(" remark = #{remark} ");
@@ -79,7 +79,7 @@ public class DocumentDynaSqlProvider {
 				if (document.getUser() != null && document.getUser().getId() != null) {
 					SET(" user_id = #{user.id} ");
 				}
-				WHERE(" user_id = #{user_id}");
+				WHERE(" id = #{id}");
 			}
 		}.toString();
 	}

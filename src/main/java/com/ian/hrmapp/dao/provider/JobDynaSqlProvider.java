@@ -55,7 +55,6 @@ public class JobDynaSqlProvider {
 				if (job.getRemark() != null && !job.getRemark().equals("")) {
 					VALUES("remark","#{remark}");
 				}
-				WHERE(" id = #{id} ");
 			}
 		}.toString();
 	}
