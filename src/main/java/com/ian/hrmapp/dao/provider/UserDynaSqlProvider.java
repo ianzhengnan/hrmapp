@@ -19,7 +19,7 @@ public class UserDynaSqlProvider {
 					if (user.getLoginname() != null && !user.getLoginname().equals("")) {
 						WHERE(" username LIKE CONCAT ('%', #{user.username}, '%'");
 					}
-					if (user.getStatus() != null && !user.getStatus().equals("")) {
+					if (user.getStatus() != null && !user.getStatus().equals(0)) {
 						WHERE(" username LIKE CONCAT ('%', #{user.status}, '%'");
 					}
 				}
